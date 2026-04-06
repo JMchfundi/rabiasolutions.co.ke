@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 import { useEffect, useState, useCallback } from "react";
-import { FaMoneyBillWave, FaExclamationTriangle, FaTint } from "react-icons/fa";
+import { FaMoneyBillWave, FaExclamationTriangle, FaTint, FaWater, FaTractor, FaGifts, FaShieldAlt } from "react-icons/fa";
 
 import hero1 from "../assets/hero1.jpg";
 import hero2 from "../assets/hero2.jpg";
@@ -10,14 +10,14 @@ import team1 from "../assets/team1.jpg";
 const slides = [
   {
     image: hero1,
-    title: "Empowering Farmers",
-    text: "Transforming communities through innovation and financial solutions.",
+    title: "Empowering Farmers, Transforming Lives",
+    text: "Providing direct and indirect loans tailored to meet farmers' needs across Kenya.",
     btn: "Contact Us",
   },
   {
     image: hero2,
     title: "Modern Agricultural Solutions",
-    text: "Providing tools, loans, and expertise to help you grow.",
+    text: "Loans, tools, and expertise to help farmers grow.",
     btn: "Learn More",
   },
   {
@@ -32,21 +32,61 @@ const services = [
   {
     icon: <FaMoneyBillWave size={28} />,
     title: "Elimu Loan",
-    text: "Education-related expenses such as school fees, uniforms, and books.",
+    text: "Supports education expenses such as school fees, uniforms, and books for children of farmers.",
     color: "primary",
   },
   {
     icon: <FaExclamationTriangle size={28} />,
     title: "Emergency Loan",
-    text: "Immediate relief loans for unforeseen emergencies.",
+    text: "Immediate relief loans for emergencies like medical bills or natural disasters.",
     color: "success",
   },
   {
     icon: <FaTint size={28} />,
     title: "Drip Kits",
-    text: "Modern drip irrigation kits to maximize water usage.",
+    text: "Modern drip irrigation kits to maximize water usage and crop yield.",
     color: "warning",
   },
+  {
+    icon: <FaWater size={28} />,
+    title: "Water Pumps",
+    text: "Manual and motorized pumps to support irrigation and water supply on farms.",
+    color: "info",
+  },
+  {
+    icon: <FaTractor size={28} />,
+    title: "Farming Equipment",
+    text: "Sprayers, hoes, planters, and machinery to reduce labor intensity.",
+    color: "secondary",
+  },
+  {
+    icon: <FaMoneyBillWave size={28} />,
+    title: "Development Loans",
+    text: "Loans for large-scale agricultural or personal development projects.",
+    color: "dark",
+  },
+  {
+    icon: <FaGifts size={28} />,
+    title: "Festive Package",
+    text: "Special loans for holidays including household items, clothing, and school supplies.",
+    color: "danger",
+  },
+  {
+    icon: <FaShieldAlt size={28} />,
+    title: "Crop Insurance & Loan Guard",
+    text: "Protection against crop failure and financial security in case of death or disability.",
+    color: "warning",
+  },
+];
+
+const team = [
+  {
+    name: "Maryam Lugogo",
+    role: "CEO & Financial Manager",
+    phone: "+254740515444",
+    // email: "maryamlugogo@gmail.com",
+    image: team1,
+  }
 ];
 
 function Home() {
@@ -60,13 +100,11 @@ function Home() {
   }, []);
 
   const handleHover = useCallback((e, enter) => {
-    e.currentTarget.style.transform = enter
-      ? "translateY(-5px)"
-      : "translateY(0)";
+    e.currentTarget.style.transform = enter ? "translateY(-5px)" : "translateY(0)";
   }, []);
 
   return (
-    <div className="">
+    <div>
       {/* HERO SECTION */}
       <section className="overflow-hidden mb-5" style={{ height: "85vh" }}>
         {slides.map((slide, index) => (
@@ -84,7 +122,6 @@ function Home() {
               alt={slide.title}
               className="w-100 h-100 object-fit-cover"
               style={{
-                // filter: "brightness(0.7)",
                 transform: index === current ? "scale(1)" : "scale(1.05)",
                 transition: "transform 6s ease",
               }}
@@ -92,9 +129,7 @@ function Home() {
             <div className="position-absolute top-50 start-50 translate-middle w-100 px-5 text-center text-white">
               <h1 className="fw-bold display-5 mb-3">{slide.title}</h1>
               <p className="lead mb-4">{slide.text}</p>
-              <Button variant="light" size="lg">
-                {slide.btn}
-              </Button>
+              <Button variant="light" size="lg">{slide.btn}</Button>
             </div>
           </div>
         ))}
@@ -104,9 +139,7 @@ function Home() {
       <section className="container-fluid py-5 px-5 text-center">
         <h2 className="fw-bold mb-3">Helping the Community</h2>
         <p className="lead col-lg-8 mx-auto">
-          We are a team of financial experts, agricultural advisors, and
-          community developers working together to uplift farmers and improve
-          livelihoods.
+          We are a diverse team of financial experts, agricultural advisors, and community developers working together to uplift farmers. Our goal is to provide transparent, reliable, and impactful loan services.
         </p>
       </section>
 
@@ -142,20 +175,21 @@ function Home() {
       <section className="container-fluid py-5 px-5 text-center">
         <h2 className="fw-bold mb-4">Meet Our Team</h2>
         <div className="row g-4 justify-content-center">
-          <div className="col-md-4 col-lg-3">
-            <div className="card shadow-sm h-100 border-0 text-center p-4">
-              <img
-                src={team1}
-                className="rounded-circle mx-auto mb-3"
-                alt="Maryam Lugogo"
-                style={{ width: "120px", height: "120px", objectFit: "cover" }}
-              />
-              <h5 className="fw-bold">Maryam Lugogo</h5>
-              <p className="text-muted mb-2">CEO & Financial Manager</p>
-              <small className="d-block">📞 +254740515444</small>
-              {/* <small>✉️ maryamlugogo@gmail.com</small> */}
+          {team.map((member, i) => (
+            <div className="col-md-4 col-lg-3" key={i}>
+              <div className="card shadow-sm h-100 border-0 text-center p-4">
+                <img
+                  src={member.image}
+                  className="rounded-circle mx-auto mb-3"
+                  alt={member.name}
+                  style={{ width: "120px", height: "120px", objectFit: "cover" }}
+                />
+                <h5 className="fw-bold">{member.name}</h5>
+                <p className="text-muted mb-2">{member.role}</p>
+                <small className="d-block">📞 {member.phone}</small>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
