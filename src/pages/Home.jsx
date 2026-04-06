@@ -40,7 +40,6 @@ function Home() {
 
   return (
     <div >
-
       {/* HERO SECTION */}
       <div className="overflow-hidden mb-5" style={{ height: "75vh" }}>
         {slides.map((slide, index) => (
