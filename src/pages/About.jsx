@@ -2,7 +2,7 @@ function About() {
   return (
     <div className="py-5">
 
-      {/* ABOUT HEADER */}
+      ABOUT HEADER
       <div className="bg-light p-5 rounded text-center mb-5">
         <h1 className="display-5 fw-bold">About Us</h1>
         <p className="lead">
