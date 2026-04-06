@@ -5,7 +5,7 @@ function Contact() {
       <p>Email: info@rabiasolutions.com</p>
       <p>Phone: +254 XXX XXX XXX</p>
     </div>
-  )
+  );
 }
 
-export default Contact
+export default Contact;

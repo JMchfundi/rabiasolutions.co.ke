@@ -1,3 +1,8 @@
+.navbar {
+  z-index: 1030; /* bootstrap default for fixed navbars */
+  position: relative; /* or fixed if you want sticky navbar */
+  height: 70px;
+}
 .counter {
   font-size: 16px;
   padding: 5px 10px;

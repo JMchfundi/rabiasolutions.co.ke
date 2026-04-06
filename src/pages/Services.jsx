@@ -8,7 +8,7 @@ function Services() {
         <li>System Integration</li>
       </ul>
     </div>
-  )
+  );
 }
 
-export default Services
+export default Services;

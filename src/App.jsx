@@ -1,18 +1,19 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Navbar from "./components/Navbar"
-import Footer from "./components/Footer"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import TopBar from "./components/TopBar";
+import Footer from "./components/Footer";
 
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Services from "./pages/Services"
-import Team from "./pages/Team"
-import Contact from "./pages/Contact"
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Services from "./pages/Services";
+import Team from "./pages/Team";
+import Contact from "./pages/Contact";
 
 function App() {
   return (
     <BrowserRouter>
+      <TopBar />
       <Navbar />
-
       <div className="container mt-4">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,10 +23,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
-
       <Footer />
     </BrowserRouter>
-  )
+  );
 }
 
-export default App
+export default App;
