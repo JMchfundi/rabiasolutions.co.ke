@@ -26,7 +26,6 @@ function Navbar() {
         {/* Logo + Brand */}
         <NavLink className="navbar-brand d-flex align-items-center" to="/">
           <img src={logo} alt="Rabia Solutions Logo" width="40" height="40" className="me-2" />
-          Rabia Solutions
         </NavLink>
 
         {/* Mobile Toggler */}
